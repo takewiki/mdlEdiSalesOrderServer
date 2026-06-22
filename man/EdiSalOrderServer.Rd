@@ -4,7 +4,7 @@
 \alias{EdiSalOrderServer}
 \title{处理逻辑}
 \usage{
-EdiSalOrderServer(input, output, session, dms_token)
+EdiSalOrderServer(input, output, session, dms_token, erp_token)
 }
 \arguments{
 \item{input}{输入}

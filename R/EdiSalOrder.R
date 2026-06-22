@@ -11,7 +11,7 @@
 #'
 #' @examples
 #' EdiSalOrderViewServer()
-EdiSalOrderViewServer <- function(input,output,session,dms_token) {
+EdiSalOrderViewServer <- function(input,output,session,dms_token,erp_token) {
   #获取参数
 
   text_EdiSalOrder_FBillNO = tsui::var_text('text_EdiSalOrder_FBillNO')
@@ -24,7 +24,7 @@ EdiSalOrderViewServer <- function(input,output,session,dms_token) {
     FBillNO=text_EdiSalOrder_FBillNO()
 
 
-    data = mdlEdiSalesOrderPkg::EdiSalOrder_view(dms_token =dms_token ,FBillNO=FBillNO)
+    data = mdlEdiSalesOrderPkg::EdiSalOrder_view(erp_token =erp_token ,FBillNO=FBillNO)
 
     tsui::run_dataTable2(id ='EdiSalOrder_resultView' ,data = data)
 
@@ -57,7 +57,7 @@ EdiSalOrderViewServer <- function(input,output,session,dms_token) {
 #'
 #' @examples
 #' EdiSalOrderServer()
-EdiSalOrderServer <- function(input,output,session,dms_token) {
-  EdiSalOrderViewServer(input = input,output = output,session = session,dms_token = dms_token)
+EdiSalOrderServer <- function(input,output,session,dms_token,erp_token) {
+  EdiSalOrderViewServer(input = input,output = output,session = session,dms_token = dms_token,erp_token=erp_token)
 
 }
