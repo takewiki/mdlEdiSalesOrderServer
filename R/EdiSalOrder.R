@@ -16,6 +16,8 @@ EdiSalOrderViewServer <- function(input,output,session,dms_token,erp_token) {
 
   text_EdiSalOrder_FBillNO = tsui::var_text('text_EdiSalOrder_FBillNO')
 
+  text_EdiSalOrder_FBillNO_delete = tsui::var_text('text_EdiSalOrder_FBillNO_delete')
+
 
 
 
@@ -32,10 +34,15 @@ EdiSalOrderViewServer <- function(input,output,session,dms_token,erp_token) {
 
 
 
+  })
+
+  shiny::observeEvent(input$btn_EdiSalOrder_delete,{
+    FBillNO=text_EdiSalOrder_FBillNO_delete()
 
 
+    mdlEdiSalesOrderPkg::EdiSalOrder_delete(erp_token =erp_token ,FBillNO=FBillNO)
 
-
+    tsui::pop_notice("删除成功")
 
 
   })
